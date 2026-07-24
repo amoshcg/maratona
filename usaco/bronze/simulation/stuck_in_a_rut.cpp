@@ -1,14 +1,12 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#define int long long
-
 struct cow{
     char direction;
     int x, y;
 };
 
-signed main(){
+int main(){
     cin.tie(0);
     cin.sync_with_stdio(0);
     int n;
