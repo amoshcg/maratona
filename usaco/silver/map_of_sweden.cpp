@@ -7,8 +7,8 @@ void setIO(string s){
 }
 
 signed main(){
-    // cin.tie(0);
-    // cin.sync_with_stdio(0);
+    cin.tie(0);
+    cin.sync_with_stdio(0);
     int r, c, u;
     cin >> r >> c >> u;
     vector<vector<char>> image(r, vector<char>(c));
@@ -24,8 +24,8 @@ signed main(){
     vector<vector<bool>> visited(r, vector<bool>(c));
 
     auto valid = [&](int x, int y){
-        if(x > r || x < 0) return false;
-        if(y > c || y < 0) return false;
+        if(x >= r || x < 0) return false;
+        if(y >= c || y < 0) return false;
         if(image[x][y] == '.') return false;
         return true;
     };
@@ -62,12 +62,15 @@ signed main(){
         cin >> new_x >> new_y;
         new_x--;
         new_y--;
-        cout << new_x << " " << new_y << endl;
         image[new_x][new_y] = '#';
         for(int i = 0; i < 4; i++){
+            
             if(!valid(new_x + dx[i], new_y + dy[i])) continue;
+
+            // Se algum vizinho ja foi for visitado
             if(visited[new_x + dx[i]][new_y + dy[i]]){
                 dfs(new_x, new_y);
+                break;
             }
         }
 
