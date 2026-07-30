@@ -46,7 +46,7 @@ ostream& operator<<(ostream& os, const Container& c) {
 const int MOD = 998244353;
 
 signed main(){
-    // fastio;
+    fastio;
     int q, k;
     cin >> q >> k;
     vector<int> dp(k + 1);
