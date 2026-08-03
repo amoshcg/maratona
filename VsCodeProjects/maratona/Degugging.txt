@@ -1,0 +1,13 @@
+Binary Search
+
+Se houver atualização da resposta dentro do while, a condição do while precisa ser while(l <= r), porque quando l == r o while não é executado.
+
+Se a condição for while(l <= r), as atualizações precisam ser esquerda = meio + 1 e direita = meio - 1, senão, loop infinito.
+
+Segment Tree with Lazy Propagation
+
+Esquecer de propagar as mudanças na atualização ou na query.
+
+Floating point
+
+Tomar cuidado ao inicializar variáveis para int em vés de ld.

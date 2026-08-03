@@ -1,0 +1,45 @@
+%{
+	//1º)Definições
+	#include <stdio.h>
+	#include <bits/stdc++.h>
+	 int cont = 0;
+%}
+
+DIGITO		[0-9]
+INTEIRO		("+"|"-")?{DIGITO}+
+
+%%
+	//2º)Regras
+{DIGITO}		{ printf("Achei um digito: %s\n", yytext); }
+{INTEIRO}		{ printf("Achei um inteiro: %s\n", yytext); }
+[a-zA-Z]		{ 
+					cont++;
+					printf("Achei uma letra: %s\n", yytext);		
+				}
+a+				;
+.				; 
+
+%%
+//3º) Subrotinas
+
+int yywrap(){
+	return 1;
+}
+
+int main(){
+	
+	yyin = fopen("teste.txt", "r");
+	if(yyin == NULL) {
+		cout << "aaaaaaaa" << endl;
+		exit(1);
+	}
+	
+	printf("Digite um digito:\n");
+	yylex();
+	
+	printf("Numero de letras digitadas: %d\n", cont);
+	
+	fclose(yyin);
+	
+	return 0;
+}

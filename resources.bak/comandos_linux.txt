@@ -1,0 +1,12 @@
+diff file_name1 file_name2
+	-c prints all the contents and highlight discrepancies
+	-i ignore case sensitivity
+time command_or_script
+	Exemplo: time ./a.out < input
+
+uniq [ flags ] [ nome_arquivo ]
+imprime os conteúdos do arquivo ignorando linhas duplicadas
+	-D imprime as linhas duplicadas do conteúdo de um arquivo
+	-c conta a quantidade de linhas iguais
+
+sort
