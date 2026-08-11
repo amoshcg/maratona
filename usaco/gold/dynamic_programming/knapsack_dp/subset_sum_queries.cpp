@@ -45,26 +45,49 @@ ostream& operator<<(ostream& os, const Container& c) {
 
 const int MOD = 998244353;
 
+// signed main(){
+//     fastio;
+//     int q, k;
+//     cin >> q >> k;
+//     vector<int> dp(k + 1);
+//     dp[0] = 1;
+//     while(q--){
+//         char op;
+//         int x;
+//         cin >> op >> x;
+//         if(op == '-'){
+//             for(int i = 0; i <= k; i++){
+//                 if(i - x >= 0) dp[i] = (dp[i] + MOD - dp[i - x]) % MOD;
+//             }
+//         } else {
+//             for(int i = k; i >= 0; i--){
+//                 if(i - x >= 0) dp[i] = (dp[i] + dp[i -x]) % MOD;
+//             }
+//         }
+//         cout << dp[k] << endl;
+//     }
+//     return 0;
+// }
+
 signed main(){
-    fastio;
     int q, k;
     cin >> q >> k;
     vector<int> dp(k + 1);
     dp[0] = 1;
     while(q--){
         char op;
-        int x;
-        cin >> op >> x;
-        if(op == '-'){
-            for(int i = 0; i <= k; i++){
-                if(i - x >= 0) dp[i] = (dp[i] + MOD - dp[i - x]) % MOD;
+        int val;
+        cin >> op >> val;
+        
+        if(op == '+'){
+            for(int i = k; i >= 0; i--){
+                if(i - val >= 0) dp[i] = (dp[i] + dp[i - val]) % MOD;
             }
         } else {
-            for(int i = k; i >= 0; i--){
-                if(i - x >= 0) dp[i] = (dp[i] + dp[i -x]) % MOD;
+            for(int i = 0; i <= k; i++){
+                if(i - val >= 0) dp[i] = (MOD + dp[i] - dp[i - val]) % MOD;
             }
         }
         cout << dp[k] << endl;
     }
-    return 0;
 }

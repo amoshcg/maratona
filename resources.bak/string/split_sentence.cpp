@@ -20,15 +20,3 @@ vector<string> split_sentence(string s){
 	while(getline(ss, word, ' ')) v.push_back(word);
 	return v;
 }
-
-int main(){
-	int n;
-	cin >> n;
-	cin.ignore();
-	vector<vector<string>> v(n);
-	for(auto &w:v) w = split_sentence(read_line());
-	for(auto j:v){
-		for(auto i:j) cout << i << " ";
-		cout << endl;
-	}
-}
